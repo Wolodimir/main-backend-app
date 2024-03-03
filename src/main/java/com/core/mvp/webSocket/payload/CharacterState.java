@@ -1,19 +1,19 @@
-package com.core.mvp.kafka.payload;
+package com.core.mvp.webSocket.payload;
 
 public class CharacterState {
 
     private int health;
     private int stamina;
-    private String userName;
+    private String name;
     private String id;
 
     public CharacterState() {
     }
 
-    public CharacterState(int health, int stamina, String userName, String id) {
+    public CharacterState(int health, int stamina, String name, String id) {
         this.health = health;
         this.stamina = stamina;
-        this.userName = userName;
+        this.name = name;
         this.id = id;
     }
 
@@ -22,7 +22,7 @@ public class CharacterState {
         return "CharacterState{" +
                 "health=" + health +
                 ", stamina=" + stamina +
-                ", name='" + userName + '\'' +
+                ", name='" + name + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }
@@ -43,12 +43,12 @@ public class CharacterState {
         this.stamina = stamina;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getId() {

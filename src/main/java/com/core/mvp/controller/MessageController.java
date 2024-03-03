@@ -4,6 +4,10 @@ import com.core.mvp.kafka.KafkaJsonProducer;
 import com.core.mvp.kafka.KafkaProducer;
 import com.core.mvp.kafka.payload.CharacterState;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +32,7 @@ public class MessageController {
     }
 
     @PostMapping("/json")
-    public ResponseEntity<String> sendMessage(@RequestBody CharacterState characterState) {
+    public ResponseEntity<String> ApiSendMessage(@RequestBody CharacterState characterState) {
         kafkaJsonProducer.sendCharacterState(characterState);
         return ResponseEntity.ok("Message go to queue");
     }
